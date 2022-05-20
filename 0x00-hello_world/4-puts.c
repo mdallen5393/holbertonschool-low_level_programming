@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 /**
- *
- * 4-puts.c - prints line of text using puts
+ * main - prints line of text using puts
  *
  * Return: 0
  */
