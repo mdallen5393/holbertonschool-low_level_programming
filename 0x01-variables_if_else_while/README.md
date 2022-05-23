@@ -43,4 +43,19 @@ TASKS:
 	digit numbers, separated by ', ' in ascending order, using putchar.
 
 ADVANCED TASKS:
+10. Inventing is a combination of brains and materials. The more brains you use, the less material you need - 100-print_comb3.c
+	Print all possible different combinations of two digits, separated
+	by a ', '; digits must be different; "01" and "10" are considered
+	the same combination of two digits '0' and '1'. Print only the
+	smallest combination of two digits. Print in ascending order. Use
+	putchar.
 
+11. The success combination in business is: Do what you do better... and: do more of what you do... - 101-print-comb4.c
+	Print all possible combinations of three digits, separated by ', ',
+	where all three digits are different; 012, 120 are the same - only
+	print the lowest; print in ascending order; use putchar.
+
+12. Software is eating the World - 102-print_comb5.c
+	Print all possible combinations of two two-digit numbers, separated
+	by ', '; Numbers should be printed as two digits (1 = 01); ascending
+	order; 00 01 and 01 00 are considered the same; use putchar.
