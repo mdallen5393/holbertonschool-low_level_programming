@@ -39,4 +39,9 @@ TASKS:
 	Function that prints a triangle of a specified size.
 
 ADVANCED TASKS (OPTIONAL):
+11. The problem of distinguishing prime numbers from composite numbers and of resolving the latter into their prime factors is known to be one of the most important and useful in arithmetic - 100-prime_factor.c
+	Program that finds and prints the largest prime factor of the number
+	"612852475143".
 
+12. Numbers have life; they're not just symbols on paper - 101-print_number.c
+	Prints an integer.
