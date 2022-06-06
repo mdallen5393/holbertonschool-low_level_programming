@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * string_toupper: changes all lowercase letters of a string to uppercase
+ * string_toupper - changes all lowercase letters of a string to uppercase
  * @s: string to change
  * Return: pointer to s
  */
