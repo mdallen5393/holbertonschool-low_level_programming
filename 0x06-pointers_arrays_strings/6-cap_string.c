@@ -10,7 +10,7 @@ char *cap_string(char *s)
 	int i;
 
 	i = 1;
-	while (s[i] != '\0')
+	while (s[i])
 	{
 		switch (s[i - 1])
 		{
