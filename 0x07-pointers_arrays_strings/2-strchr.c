@@ -1,5 +1,5 @@
 #include "main.h"
-#include "stdio.h"
+#include "stddef.h"
 /**
  * _strchr - locates a character in a string
  * @s: string input
@@ -17,6 +17,6 @@ char *_strchr(char *s, char c)
 			return (s + i);
 		i++;
 	}
-	printf("%c\n", s[i]);
-	return (&s[i]);
+
+	return (NULL);
 }
