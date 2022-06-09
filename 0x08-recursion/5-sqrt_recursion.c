@@ -10,7 +10,7 @@ int sqrt_rec(int i, int n)
 {
 	int next;
 
-	if (n < 1)
+	if (n < 0)
 		return (-1);
 
 	if (i * i <= n && (i + 1) * (i + 1) > n)
