@@ -6,9 +6,9 @@
  * @n: number to find square root of
  * Return: answer
  */
-int sqrt_rec(long int i, long int n)
+int sqrt_rec(int i, int n)
 {
-	long int next;
+	int next;
 
 	if (n < 0)
 		return (-1);
@@ -28,7 +28,5 @@ int sqrt_rec(long int i, long int n)
  * @n: operand
  * Return: answer or -1 if n does not have a natural square root
  */
-int _sqrt_recursion(long int n)
-{
+int _sqrt_recursion(int n)
 	return (sqrt_rec(1, n));
-}
