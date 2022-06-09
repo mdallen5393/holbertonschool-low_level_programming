@@ -29,4 +29,6 @@ int sqrt_rec(int i, int n)
  * Return: answer or -1 if n does not have a natural square root
  */
 int _sqrt_recursion(int n)
+{
 	return (sqrt_rec(1, n));
+}
