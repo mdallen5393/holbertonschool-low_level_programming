@@ -2,14 +2,14 @@
 
 /**
  * sqrt_rec - returns the natural square root of a number
- * @k: possible answer
+ * @i: possible answer
  * @n: number to find square root of
  * Return: answer
  */
 int sqrt_rec(int i, int n)
 {
 	int next;
-       
+
 	if (i * i <= n && (i + 1) * (i + 1) > n)
 		return (i);
 
