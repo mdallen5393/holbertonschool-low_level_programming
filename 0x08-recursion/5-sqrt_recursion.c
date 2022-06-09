@@ -6,7 +6,7 @@
  * @n: number to find square root of
  * Return: answer
  */
-int sqrt_rec(int i, int n)
+int sqrt_rec(long i, int n)
 {
 	int next;
 
