@@ -37,4 +37,10 @@ TASKS:
 	Function that copies the string pointed to by src, including the
 	terminating null byte \0 to the buffer pointed to by dest.
 
+ADVANCED TASKS (OPTIONAL):
+10. Great leaders are willing to sacrifice the numbers to save the people. Poor leaders sacrifice the people to save the numbers - 100-atoi.c
+	Function that converts a string to an integer.
 
+11. Don't hate the hacker, hate the code - 101-keygen.c
+	Program that generates random valid passwords for the program
+	101-crackme.
