@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * main - multiplies two numbers
+ * @argc: number of arguments
+ * @argv: argument vector
+ * Return: 1 if program doesn't recieve 2 arguments; 0 otherwise.
+ */
 int main(int argc, char **argv)
 {
 	if (argc != 3)
