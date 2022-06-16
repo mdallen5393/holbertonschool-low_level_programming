@@ -15,7 +15,7 @@ char *create_array(unsigned int size, char c)
 
 	if (arr == NULL)
 	{
-		fprintf("failed to allocate memory");
+		fprintf(stderr, "failed to allocate memory");
 		return (NULL);
 	}
 
