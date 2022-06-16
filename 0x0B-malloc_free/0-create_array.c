@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * create_array - creates an array of chars, and initializes w/spec. char
@@ -13,7 +14,10 @@ char *create_array(unsigned int size, char c)
 	unsigned int i;
 
 	if (arr == NULL)
+	{
+		fprintf("failed to allocate memory");
 		return (NULL);
+	}
 
 	for (i = 0; i < size; i++)
 	{
