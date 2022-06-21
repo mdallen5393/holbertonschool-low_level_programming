@@ -45,8 +45,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (s1 == NULL && s2 == NULL)
 	{
-		free(str);
-		return (NULL);
+		str[i] = NULL;
 	}
 	return (str);
 }
