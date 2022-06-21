@@ -17,13 +17,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (s1 != NULL)
 	{
-		while (s1[l1])
+		while (s1[l1] != '\0')
 			l1++;
 	}
 
 	if (s2 != NULL)
 	{
-		while (s2[l2])
+		while (s2[l2] != '\0')
 			l2++;
 
 		if (l2 > n)
