@@ -11,7 +11,6 @@ int main(int argc, char **argv)
 	int num1, num2;
 	char *operator;
 	int (*op)(int, int);
-	int divmod = 0;
 
 	if (argc != 4)
 	{
