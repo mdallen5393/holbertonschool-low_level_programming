@@ -31,11 +31,7 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 
-	divmod = (strcmp(operator, "/") == 0);
-	divmod = (strcmp(operator, "%") == 0);
-
-	/*if ((strcmp(operator, "/") == 0 || (strcmp(operator, "%")) == 0) && num2 == 0)*/
-	if ((divmod == 1) && num2 == 0)
+	if ((strcmp(operator, "/") == 0 || (strcmp(operator, "%")) == 0) && num2 == 0)
 	{
 		printf("Error\n");
 		exit(100);
