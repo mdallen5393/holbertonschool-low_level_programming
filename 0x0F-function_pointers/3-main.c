@@ -11,6 +11,7 @@ int main(int argc, char **argv)
 	int num1, num2;
 	char *operator;
 	int (*op)(int, int);
+	int divmod = 0;
 
 	if (argc != 4)
 	{
@@ -30,7 +31,11 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 
-	if ((strcmp(operator, "/") == 0 || (strcmp(operator, "%")) == 0) && num2 == 0)
+	divmod = (strcmp(operator, "/") == 0);
+	divmod = (strcmp(operator, "%") == 0);
+
+	/*if ((strcmp(operator, "/") == 0 || (strcmp(operator, "%")) == 0) && num2 == 0)*/
+	if ((divmod == 1) && num2 == 0)
 	{
 		printf("Error\n");
 		exit(100);
