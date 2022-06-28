@@ -7,18 +7,13 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap, check;
-	int x = 0;
-	
-	char cin;
-	int iin;
-	double fin;
-	char *sin;
-	char *seg = ", ";
+	char cin, *sin, *seg = ", ";
+	int iin, x = 0;
 
 	va_start(ap, format);
 	va_start(check, format);
 
-		while(format[x] != '\0')
+		while (format[x] != '\0')
 		{
 			if (format[x + 1] == '\0')
 				seg = "";
