@@ -13,39 +13,39 @@ void print_all(const char * const format, ...)
 	int iin;
 	double fin;
 	char *sin;
+	char *seg = ", ";
 
 	va_start(ap, format);
 	va_start(check, format);
 
-	while (va_arg(check, void))
-	{
 		while(format[x] != '\0')
 		{
+			if (format[x + 1] == '\0')
+				seg = "";
 			switch (format[x])
 			{
 				case 'c':
-					cin = va_arg(ap, char);
-					printf("%c", );
+					cin = va_arg(ap, int);
+					printf("%c%s", cin, seg);
 					break;
 				case 'i':
 					iin = va_arg(ap, int);
-					printf("%d", );
+					printf("%d%s", iin, seg);
 					break;
 				case 'f':
 					fin = va_arg(ap, double);
-					printf("%f", );
+					printf("%f%s", fin, seg);
 					break;
 				case 's':
 					sin = va_arg(ap, char *);
-					if (s = NULL)
-						printf("(nil)");
-					if (s != NULL)
-						printf("%s", s);
+					if (sin == NULL)
+						sin = "(nil)";
+					printf("%s%s", sin, seg);
 					break;
 				default:
 					break;
 			}
-			printf("\n");
+			x++;
 		}
-	}
+		printf("\n");
 }
