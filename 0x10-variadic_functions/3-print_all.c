@@ -14,7 +14,7 @@ void print_all(const char * const format, ...)
 	va_start(ap, format);
 	va_start(check, format);
 
-	while (format[x] != '\0' && format != NULL)
+	while (format != NULL && format[x] != '\0')
 	{
 		if (format[x + 1] == '\0')
 			seg = "";
