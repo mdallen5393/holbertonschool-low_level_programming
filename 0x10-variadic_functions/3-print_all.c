@@ -9,6 +9,7 @@ void print_all(const char * const format, ...)
 	va_list ap, check;
 	char cin, *sin, *seg = ", ";
 	int iin, x = 0;
+	double fin;
 
 	va_start(ap, format);
 	va_start(check, format);
