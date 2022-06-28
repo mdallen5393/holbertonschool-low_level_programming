@@ -1,5 +1,10 @@
 #include "variadic_functions.h"
 
+/**
+ * print_strings - prints string arguments after n
+ * @separator: string to print between strings
+ * @n: number of strings after n
+ */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
 	va_list ap;
