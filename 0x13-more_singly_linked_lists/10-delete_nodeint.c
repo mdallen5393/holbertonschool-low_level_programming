@@ -32,8 +32,8 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		i++;
 	}
 
-	if (index == 0)
-		*head = (*head)->next;
+	if (!temp)
+		return (-1);
 
 	node_to_delete = temp->next;
 	temp->next = temp->next->next;
