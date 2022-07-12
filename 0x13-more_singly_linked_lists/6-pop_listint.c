@@ -6,9 +6,14 @@
  * Return: head node's data (n), or 0 if the list is empty
  */
 int pop_listint(listint_t **head)
-{
+a{
 	listint_t *temp = *head;
-	int data = temp->n;
+	int data;
+       
+	if (!head)
+		return;
+
+	data = temp->n;
 
 	*head = (*head)->next;
 
