@@ -9,9 +9,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int i = 0, dec = 0, len;
-
-	len = strlen(b);
+	unsigned int i = 0, dec = 0;
 
 	if (!b)
 		return (0);
@@ -22,7 +20,7 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 
 		if (b[i] == '1')
-			dec += myPow(2, len - i - 1);
+			dec += myPow(2, strlen(b) - i - 1);
 
 		i++;
 	}
