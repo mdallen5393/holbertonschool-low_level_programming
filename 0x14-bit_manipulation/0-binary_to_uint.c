@@ -23,7 +23,7 @@ unsigned int binary_to_uint(const char *b)
 
 		if (b[i] == '1')
 			dec += myPow(2, len - i - 1);
-	
+
 		i++;
 	}
 
