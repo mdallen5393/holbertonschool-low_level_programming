@@ -8,6 +8,9 @@ unsigned int myPow(unsigned int a, unsigned int b)
 {
 	unsigned int num = a, i = 1;
 
+	if (b == 0)
+		return (1);
+
 	while (i < b)
 	{
 		num *= a;
