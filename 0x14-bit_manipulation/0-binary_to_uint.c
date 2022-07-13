@@ -18,14 +18,12 @@ unsigned int binary_to_uint(const char *b)
 
 	while (b[i])
 	{
-		if (b[i] == '0' || b[i] == '1')
-		{
-			if (b[i] == '1')
-				dec += myPow(2, len - i - 1);
-		}
-		else
+		if (b[i] != '0' && b[i] != '1')
 			return (0);
 
+		if (b[i] == '1')
+			dec += myPow(2, len - i - 1);
+	
 		i++;
 	}
 
