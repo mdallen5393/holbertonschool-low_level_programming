@@ -21,10 +21,10 @@ int get_bit(unsigned long int n, unsigned int index)
 		i++;
 	}
 
-	if (index > i && index < 32)
+	if (index > i && index < sizeof(*n) * 8)
 		return (0);
 
-	if (index > 31)
+	if (index > sizeof(*n) * 8)
 		return (-1);
 
 	return (n % 2);
