@@ -43,7 +43,7 @@ int main(int ac, char **av)
 	err_test_100(close(fd_from), fd_from, fd_to, fd_from);
 	err_test_100(close(fd_to), fd_to, fd_to, fd_from);
 
-	return (1);
+	return (0);
 }
 
 /**
