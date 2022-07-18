@@ -16,7 +16,8 @@ void err_test_100(int status, int fd, int fd_to, int fd_from);
 int main(int ac, char **av)
 {
 	char *file_from, *file_to;
-	int fd_from = 0, fd_to = 0, bytes_read = 1024, bytes_written = 0;
+	int fd_from = 0, fd_to = 0;
+	ssize_t bytes_read = 1024, bytes_written = 0;
 	char buffer[1024];
 
 	err_test_97(ac);
