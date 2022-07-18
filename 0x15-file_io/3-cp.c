@@ -24,7 +24,8 @@ int main(int ac, char **av)
 	file_to = av[2];
 
 	err_test_98(fd_from = open(file_from, O_RDONLY), file_from);
-	err_test_98(fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664), file_to);
+	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	err_test_98(fd_to, file_to);
 
 	bytes = read(fd_from, buffer, 1024);
 
