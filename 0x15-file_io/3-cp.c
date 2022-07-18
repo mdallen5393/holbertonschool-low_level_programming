@@ -1,7 +1,7 @@
 #include "main.h"
 
 void reset_buffer(char *buffer);
-void err_test_97(int ac, char *name);
+void err_test_97(int ac);
 void err_test_98(int fd, char *name);
 void err_test_99(int status, char *name);
 void err_test_100(int status, int fd);
@@ -18,13 +18,13 @@ int main(int ac, char **av)
 	int fd_from, fd_to, bytes = 1024;
 	char buffer[1024] = {'\0'}, dummy[1024] = {'\0'};
 
-	err_test_97(ac, av[0]);
+	err_test_97(ac);
 
 	file_from = av[1];
 	file_to = av[2];
 
 	err_test_98(fd_from = open(file_from, O_RDONLY), file_from);
-	err_test_98(fd_to = open(file_to, O_CREAT | O_WRONLY, 0664), file_to);
+	err_test_98(fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664), file_to);
 
 	bytes = read(fd_from, buffer, 1024);
 
@@ -67,13 +67,12 @@ void reset_buffer(char *buffer)
 /**
  * err_test_97 - test for correct number of arguments
  * @ac: num args
- * @name: function
  */
-void err_test_97(int ac, char *name)
+void err_test_97(int ac)
 {
 	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", name);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 }
