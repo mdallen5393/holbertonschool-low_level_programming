@@ -5,7 +5,7 @@ void reset_buffer(char *buffer);
 void err_test_97(int ac);
 void err_test_98(int fd_to, int fd_from, char *name);
 void err_test_99(int status, char *name, int fd_to, int fd_from);
-void err_test_100(int status, int fd);
+void err_test_100(int status, int fd, int fd_to, int fd_from);
 
 /**
  * main - copies the content of a file to another file.
@@ -39,8 +39,8 @@ int main(int ac, char **av)
 		err_test_99(bytes_written, file_to, fd_to, fd_from);
 	}
 
-	err_test_100(close(fd_from), fd_from);
-	err_test_100(close(fd_to), fd_to);
+	err_test_100(close(fd_from), fd_from, fd_to, fd_from);
+	err_test_100(close(fd_to), fd_to, fd_to, fd_from);
 
 	return (1);
 }
@@ -104,12 +104,16 @@ void err_test_99(int status, char *name, int fd_to, int fd_from)
  * err_test_100 - test for success of close()
  * @status: return status of close()
  * @fd: descriptor of file
+ * @fd_to: file descriptor file_to
+ * @fd_from: file descriptor file_from
  */
-void err_test_100(int status, int fd)
+void err_test_100(int status, int fd, int fd_to, int fd_from)
 {
 	if (status == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd);
+		close(fd_to);
+		close(fd_from);
 		exit(100);
 	}
 }
