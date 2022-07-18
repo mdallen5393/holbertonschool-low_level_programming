@@ -2,7 +2,7 @@
 
 void reset_buffer(char *buffer);
 void err_test_97(int ac, char *name);
-void err_test_98(char *file);
+void err_test_98(int fd, char *name);
 void err_test_99(int status, char *name);
 void err_test_100(int status, int fd);
 
@@ -23,10 +23,8 @@ int main(int ac, char **av)
 	file_from = av[1];
 	file_to = av[2];
 
-	err_test_98(file_from);
-
-	fd_from = open(file_from, O_RDONLY);
-	fd_to = open(file_to, O_CREAT | O_WRONLY, 0664);
+	err_test_98(fd_from = open(file_from, O_RDONLY), file_from);
+	err_test_98(fd_to = open(file_to, O_CREAT | O_WRONLY, 0664), file_to);
 
 	bytes = read(fd_from, buffer, 1024);
 
@@ -35,7 +33,7 @@ int main(int ac, char **av)
 	reset_buffer(buffer);
 	err_test_100(close(fd_to), fd_to);
 
-	fd_to = open(file_to, O_RDWR | O_APPEND);
+	err_test_98(fd_to = open(file_to, O_RDWR | O_APPEND), file_to);
 	read(fd_to, dummy, bytes);
 
 	while (bytes == 1024)
@@ -82,13 +80,14 @@ void err_test_97(int ac, char *name)
 
 /**
  * err_test_98 - test for success of read()
- * @file: name of file
+ * @fd: file descriptor
+ * @name: name of file
  */
-void err_test_98(char *file)
+void err_test_98(int fd, char *name)
 {
-	if (!file)
+	if (fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file);
+		dprintf(2, "Error: Can't read from file %s\n", name);
 		exit(98);
 	}
 }
