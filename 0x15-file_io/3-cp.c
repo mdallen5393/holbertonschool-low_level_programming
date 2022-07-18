@@ -4,7 +4,7 @@
 void reset_buffer(char *buffer);
 void err_test_97(int ac);
 void err_test_98(int fd_to, int fd_from, char *name);
-void err_test_99(int status, char *name);
+void err_test_99(int status, char *name, int fd_to, int fd_from);
 void err_test_100(int status, int fd);
 
 /**
@@ -36,7 +36,7 @@ int main(int ac, char **av)
 		bytes_written = write(fd_to, buffer, bytes_read);
 		if (bytes_written != bytes_read)
 			bytes_written = -1;
-		err_test_99(bytes_written, file_to);
+		err_test_99(bytes_written, file_to, fd_to, fd_from);
 	}
 
 	err_test_100(close(fd_from), fd_from);
@@ -87,11 +87,13 @@ void err_test_98(int fd_to, int fd_from, char *name)
  * @status: return status of write
  * @name: name of file
  */
-void err_test_99(int status, char *name)
+void err_test_99(int status, char *name, int fd_to, int fd_from)
 {
 	if (status == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", name);
+		close(fd_to);
+		close(fd_from);
 		exit(99);
 	}
 }
