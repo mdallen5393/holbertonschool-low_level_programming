@@ -71,15 +71,15 @@ void err_test_98(int fd_to, int fd_from, char *name)
 	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", name);
-		for (i = 3; i < INT_MAX; ++i)
-			close(i);
+		if (fd_to != -1)
+			close(fd_to);
 		exit(98);
 	}
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", name);
-		for (i = 3; i < INT_MAX; ++i)
-			close(i);
+		if (fd_from != -1)
+			close(fd_from);
 		exit(98);
 	}
 }
