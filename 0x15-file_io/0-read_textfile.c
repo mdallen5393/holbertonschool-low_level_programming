@@ -28,7 +28,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	close(fd);
 	buffer[letters] = '\0';
 
-	printf("%s", buffer);
+	write(1, buffer, bytes);
 
 	return (bytes);
 }
