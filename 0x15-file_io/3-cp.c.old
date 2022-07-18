@@ -2,7 +2,7 @@
 
 void reset_buffer(char *buffer);
 void err_test_97(int ac);
-void err_test_98(int fd_to, int fd_from, char *name);
+void err_test_98(int fd, char *name);
 void err_test_99(int status, char *name);
 void err_test_100(int status, int fd);
 
@@ -15,33 +15,58 @@ void err_test_100(int status, int fd);
 int main(int ac, char **av)
 {
 	char *file_from, *file_to;
-	int fd_from = 0, fd_to = 0, bytes_read = 1024, bytes_written = 0;
-	char buffer[1024];
+	int fd_from, fd_to, bytes = 1024;
+	char buffer[1024] = {'\0'}, dummy[1024] = {'\0'};
 
 	err_test_97(ac);
 
 	file_from = av[1];
 	file_to = av[2];
 
-	fd_from = open(file_from, O_RDONLY);
-	err_test_98(fd_to, fd_from, file_from);
+	err_test_98(fd_from = open(file_from, O_RDONLY), file_from);
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	err_test_98(fd_to, fd_from, file_to);
+	err_test_98(fd_to, file_to);
 
-	while (bytes_read == 1024)
+	bytes = read(fd_from, buffer, 1024);
+
+	err_test_99(write(fd_to, buffer, bytes), file_to);
+
+	reset_buffer(buffer);
+	err_test_100(close(fd_to), fd_to);
+
+	err_test_98(fd_to = open(file_to, O_RDWR | O_APPEND), file_to);
+	read(fd_to, dummy, bytes);
+
+	while (bytes == 1024)
 	{
-		bytes_read = read(fd_from, buffer, bytes_read);
-		err_test_98(bytes_read, bytes_written, file_from);
-		bytes_written = write(fd_to, buffer, bytes_read);
+		bytes = read(fd_from, buffer, 1024);
+		err_test_99(write(fd_to, buffer, bytes), file_to);
+		/*FIXME*/
 		if (bytes_written != bytes_read)
 			bytes_written = -1;
-		err_test_99(bytes_written, file_to);
+
+		reset_buffer(buffer);
 	}
 
 	err_test_100(close(fd_from), fd_from);
 	err_test_100(close(fd_to), fd_to);
 
 	return (1);
+}
+
+/**
+ * reset_buffer - resets buffer to null terminating characters
+ * @buffer: buffer to reset
+ */
+void reset_buffer(char *buffer)
+{
+	int i = 0;
+
+	while (buffer[i] != '\0')
+	{
+		buffer[i] = '\0';
+		i++;
+	}
 }
 
 /**
@@ -62,20 +87,11 @@ void err_test_97(int ac)
  * @fd: file descriptor
  * @name: name of file
  */
-void err_test_98(int fd_to, int fd_from, char *name)
+void err_test_98(int fd, char *name)
 {
-	if (fd_from == -1)
+	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", name);
-		if (fd_to != -1)
-			close(fd_to);
-		exit(98);
-	}
-	if (fd_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", name);
-		if (fd_from != -1)
-			close(fd_from);
 		exit(98);
 	}
 }
