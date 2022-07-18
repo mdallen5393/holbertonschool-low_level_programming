@@ -17,25 +17,20 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	buffer = malloc(sizeof(*buffer) * (letters));
 	if (!buffer)
-	{
-		free(buffer);
 		return (0);
-	}
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
 
 	bytes = read(fd, buffer, letters);
+	close (fd);
+
 	if (bytes == -1)
 	{
 		free(buffer);
-		close(fd);
 		return (0);
 	}
-
-	close(fd);
-	/*buffer[letters] = '\0';*/
 
 	if (write(1, buffer, bytes) != bytes)
 	{
