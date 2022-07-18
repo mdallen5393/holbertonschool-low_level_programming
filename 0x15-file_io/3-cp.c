@@ -8,8 +8,8 @@ void err_test_100(int status, int fd);
 
 /**
  * main - copies the content of a file to another file.
- * @file_from: source file
- * @file_to: destination file
+ * @ac: argument count
+ * @av: argument vector
  * Return: 0 on success.
  */
 int main(int ac, char **av)
@@ -29,7 +29,7 @@ int main(int ac, char **av)
 	fd_to = open(file_to, O_CREAT | O_WRONLY, 0664);
 
 	bytes = read(fd_from, buffer, 1024);
-	
+
 	err_test_99(write(fd_to, buffer, bytes), file_to);
 
 	reset_buffer(buffer);
@@ -72,7 +72,7 @@ void reset_buffer(char *buffer)
  * @name: function
  */
 void err_test_97(int ac, char *name)
-{	
+{
 	if (ac != 3)
 	{
 		dprintf(2, "Usage: %s file_from file_to\n", name);
@@ -85,7 +85,7 @@ void err_test_97(int ac, char *name)
  * @file: name of file
  */
 void err_test_98(char *file)
-{	
+{
 	if (!file)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", file);
