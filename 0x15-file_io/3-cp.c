@@ -73,7 +73,7 @@ void err_test_97(int ac, char *name)
 {
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: %s file_from file_to\n", name);
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", name);
 		exit(97);
 	}
 }
@@ -87,7 +87,7 @@ void err_test_98(int fd, char *name)
 {
 	if (fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", name);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", name);
 		exit(98);
 	}
 }
@@ -101,7 +101,7 @@ void err_test_99(int status, char *name)
 {
 	if (status == -1)
 	{
-		dprintf(2, "Error: Can't write to %s\n", name);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", name);
 		exit(99);
 	}
 }
@@ -115,7 +115,7 @@ void err_test_100(int status, int fd)
 {
 	if (status == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd);
 		exit(100);
 	}
 }
