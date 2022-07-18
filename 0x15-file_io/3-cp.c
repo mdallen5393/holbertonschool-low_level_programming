@@ -27,7 +27,7 @@ int main(int ac, char **av)
 	fd_from = open(file_from, O_RDONLY);
 	err_test_98(fd_to, fd_from, file_from);
 	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	err_test_98(fd_to, fd_from, file_to);
+	err_test_99(fd_to, file_to, fd_from, file_to);
 
 	while (bytes_read == 1024)
 	{
