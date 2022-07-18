@@ -59,7 +59,8 @@ void err_test_97(int ac)
 
 /**
  * err_test_98 - test for success of read()
- * @fd: file descriptor
+ * @fd_to: file descriptor file_to
+ * @fd_from: file descriptor file_from
  * @name: name of file
  */
 void err_test_98(int fd_to, int fd_from, char *name)
