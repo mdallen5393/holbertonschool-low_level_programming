@@ -86,6 +86,8 @@ void err_test_98(int fd_to, int fd_from, char *name)
  * err_test_99 - test for success of write()
  * @status: return status of write
  * @name: name of file
+ * @fd_to: file descriptor file_to
+ * @fd_from: file descriptor file_from
  */
 void err_test_99(int status, char *name, int fd_to, int fd_from)
 {
