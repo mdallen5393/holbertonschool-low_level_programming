@@ -7,16 +7,17 @@
  */
 size_t print_dlistint(const dlistint_t *h)
 {
+	const list *temp = h;
 	size_t numNodes = 0;
 
-	if (!h)
+	if (!temp)
 		return (0);
 
-	while (h)
+	while (temp)
 	{
-		printf("%i\n", h->n);
+		printf("%i\n", temp->n);
 		numNodes++;
-		h = h->next;
+		temp = temp->next;
 	}
 
 	return (numNodes);
