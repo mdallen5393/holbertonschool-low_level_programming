@@ -8,11 +8,6 @@
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-	// list *newNode = malloc(sizeof(*newNode));
-
-	// if (!newNode)
-	// 	return (NULL);
-
 	list *newNode = malloc(sizeof(*newNode));
 
 	if (!newNode)
