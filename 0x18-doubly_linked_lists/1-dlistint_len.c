@@ -7,14 +7,14 @@
  */
 size_t dlistint_len(const dlistint_t *h)
 {
-    const list *temp = h;
-    size_t numNodes = 0;
+	const list *temp = h;
+	size_t numNodes = 0;
 
-    while (temp)
-    {
-        numNodes++;
-        temp = temp->next;
-    }
+	while (temp)
+	{
+		numNodes++;
+		temp = temp->next;
+	}
 
-    return (numNodes);
+	return (numNodes);
 }
