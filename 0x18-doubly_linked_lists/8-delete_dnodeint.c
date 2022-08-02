@@ -8,8 +8,8 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	list *temp;
-	list *nodeToDelete;
+	dlistint_t *temp;
+	dlistint_t *nodeToDelete;
 	unsigned int i = 0;
 
 	if (*head == NULL || head == NULL)
