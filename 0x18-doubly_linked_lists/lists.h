@@ -7,7 +7,7 @@
 #include <string.h>
 
 /* --- MACROS --- */
-#define dlistint_t list
+/* #define dlistint_t list */
 
 /* --- STRUCTS AND TYPEDEFS --- */
 /**
