@@ -6,8 +6,8 @@
  * @index: node to return
  * Return: desired node, or NULL if it does not exist
  */
- dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
- {
+dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
+{
 	unsigned int i = 0;
 	list *temp = head;
 
@@ -18,5 +18,4 @@
 	}
 
 	return (temp);
- }
- 
+}
