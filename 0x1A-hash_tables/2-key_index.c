@@ -1,4 +1,4 @@
-#include "hash_tables.c"
+#include "hash_tables.h"
 
 /**
  * key_index - gives you the index of a key in a hash table
