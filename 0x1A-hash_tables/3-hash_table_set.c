@@ -37,7 +37,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (curr)
 	{
 		/* Get to end of list, checking whether the key matches */
-		while (curr->next)
+		while (curr)
 		{
 			/* If a key matches, free the newNode and return */
 			if (strcmp(curr->key, key) == 0)
@@ -49,8 +49,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			curr = curr->next;
 		}
+
 		/* Set the newNode to the end of the linked list */
-		curr->next = newNode;
+		newNode->next = ht->array[index];
+		ht->array[index] = newNode;
 		return (1);
 	}
 	/* Set the array[index] to the newNode */
