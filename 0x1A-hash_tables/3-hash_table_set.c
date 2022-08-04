@@ -16,13 +16,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht || !key)
 		return (0);
 
-	/* If key is empty, return failure */
 	if (strcmp(key, "\0") == 0)
 		return (0);
 
-	/* Get hashed key (index in ht->array) */
 	index = key_index((const unsigned char *)key, ht->size);
-
 	curr = ht->array[index];
 
 	newNode = malloc(sizeof(hash_node_t));
@@ -33,13 +30,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	newNode->value = strdup(value);
 	newNode->next = NULL;
 
-	/* if ht->array[index] exists ... */
 	if (curr)
 	{
-		/* Get to end of list, checking whether the key matches */
 		while (curr)
 		{
-			/* If a key matches, free the newNode and return */
 			if (strcmp(curr->key, key) == 0)
 			{
 				free(newNode->key);
@@ -49,13 +43,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			curr = curr->next;
 		}
-
-		/* Set the newNode to the end of the linked list */
 		newNode->next = ht->array[index];
 		ht->array[index] = newNode;
 		return (1);
 	}
-	/* Set the array[index] to the newNode */
 	ht->array[index] = newNode;
 	return (1);
 }
