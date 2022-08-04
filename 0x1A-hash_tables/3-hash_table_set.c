@@ -56,6 +56,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 	/* Set the array[index] to the newNode */
-	curr = newNode;
+	ht->array[index] = newNode;
 	return (1);
 }
