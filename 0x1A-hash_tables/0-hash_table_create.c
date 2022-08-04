@@ -4,7 +4,7 @@
  * hash_table_create - creates a hash table
  * @size: size of the array
  */
-hash_table_t *hash_table_create(const unsigned long int size)
+hash_table_t *hash_table_create(unsigned long int size)
 {
 	long unsigned int i;
 	hash_table_t *ht = malloc(sizeof(hash_table_t));
