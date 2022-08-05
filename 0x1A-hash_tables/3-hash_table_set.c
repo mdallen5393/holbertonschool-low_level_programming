@@ -32,13 +32,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (curr)
 	{
-		while (curr)
+		while (curr->next)
 		{
-			if (strcmp(curr->key, key) == 0)
+			if (strcmp(curr->next->key, key) == 0)
 			{
-				free(newNode->key);
-				free(newNode->value);
-				free(newNode);
+				newNode->next = curr->next->next;
+
+				free(curr->next->key);
+				free(curr->next->value);
+				free(curr->next);
+
+				curr->next = newNode;
 				return (1);
 			}
 			curr = curr->next;
