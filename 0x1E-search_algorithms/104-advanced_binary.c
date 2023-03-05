@@ -4,7 +4,7 @@
  * recursive_binary_search - function that searches for a value in a sorted
  * array of integers, using recursion
  *
- * @array pointer to the first element of the array to search in
+ * @array: pointer to the first element of the array to search in
  * @left: index of first value to look at in array
  * @right: index of last value to look at in array
  * @value: the value to search for
