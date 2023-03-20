@@ -4,6 +4,7 @@
 /* standard libraries */
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 /* structs & typedefs */
 /**
@@ -34,5 +35,6 @@ skiplist_t *linear_skip(skiplist_t *list, int value);
 skiplist_t *create_skiplist(int *array, size_t size);
 void free_skiplist(skiplist_t *list);
 void print_skiplist(const skiplist_t *list);
+int calc_skip(skiplist_t *list);
 
 #endif
